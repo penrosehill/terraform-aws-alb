@@ -83,28 +83,6 @@ resource "aws_security_group" "main" {
   }
 }
 
-resource "aws_security_group_rule" "allow_port_80_ingress_for_http_to_https_redirect" {
-  count       = var.load_balancer_type == "application" && var.enable_http_to_https_redirect ? 1 : 0
-  type        = "ingress"
-  from_port   = 80
-  to_port     = 80
-  protocol    = "tcp"
-  cidr_blocks = var.cidr_blocks_redirect
-
-  security_group_id = aws_security_group.main[0].id
-}
-
-resource "aws_security_group_rule" "allow_port_443_ingress_for_http_to_https_redirect" {
-  count       = var.load_balancer_type == "application" && var.enable_http_to_https_redirect ? 1 : 0
-  type        = "ingress"
-  from_port   = 443
-  to_port     = 443
-  protocol    = "tcp"
-  cidr_blocks = var.cidr_blocks_redirect
-
-  security_group_id = aws_security_group.main[0].id
-}
-
 resource "aws_security_group_rule" "egress" {
   count             = var.load_balancer_type == "network" ? 0 : 1
   security_group_id = aws_security_group.main[0].id
