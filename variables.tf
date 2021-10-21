@@ -111,6 +111,6 @@ variable "description" {
 
 variable "security_groups" {
   description = "List of extra security groups for load balancer"
-  type        = list(map(string))
+  type        = list(string)
   default     = []
 }

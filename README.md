@@ -107,7 +107,7 @@ Module managed by [Marcin Cuber](https://github.com/marcincuber) [LinkedIn](http
 | load\_balancer\_type | Type of load balancer to provision (network or application). | `string` | `"application"` | no |
 | load\_balancer\_update\_timeout | Timeout value when updating the ALB. | `string` | `"15m"` | no |
 | name\_prefix | A prefix used for naming resources. | `string` | n/a | yes |
-| security\_groups | List of extra security groups for load balancer | `list(map(string))` | `[]` | no |
+| security\_groups | List of extra security groups for load balancer | `list(string)` | `[]` | no |
 | subnet\_mapping | A list of subnet mapping blocks describing subnets to attach to network load balancer | `list(map(string))` | `[]` | no |
 | subnets | A list of subnet IDs to attach to the LB. | `list(string)` | n/a | yes |
 | tags | A map of tags (key-value pairs) passed to resources. | `map(string)` | `{}` | no |
